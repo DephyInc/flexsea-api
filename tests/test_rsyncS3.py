@@ -1,4 +1,4 @@
-from s3cache import __version__
+from rsyncS3 import __version__
 
 
 def test_version():
