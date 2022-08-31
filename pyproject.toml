@@ -1,8 +1,10 @@
 [tool.poetry]
 name = "rsyncS3"
-version = "0.1.0"
-description = ""
-authors = ["Jared <jcoughlin@dephy.com>"]
+version = "0.2.0"
+description = "Utility to easily download objects from Amazon S3 buckets."
+authors = ["Dephy Inc. <software@dephy.com>"]
+license = "MIT"
+repository = "https://github.com/DephyInc/rsyncS3"
 
 [tool.poetry.dependencies]
 python = "^3.10"
