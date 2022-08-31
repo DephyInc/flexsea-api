@@ -9,9 +9,9 @@ import boto3 as boto
 
 
 # ============================================
-#                   S3Cache
+#                    RsyncS3
 # ============================================
-class S3Cache:
+class RsyncS3:
     """
     Provides a local cache of an S3 bucket on disk,
     with the ability to sync up to the latest version of all files.
@@ -91,7 +91,7 @@ class S3Cache:
         pools.
         """
         s3Resource = boto.resource("s3")
-        stateDict["bucket"] = s3Resource.Bucket(stateDict["bucket_name"])
+        stateDict["bucket"] = s3Resource.Bucket(stateDict["bucketName"])
         self.__dict__ = stateDict
 
     # -----

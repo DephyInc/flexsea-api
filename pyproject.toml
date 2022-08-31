@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "s3cache"
+name = "rsyncS3"
 version = "0.1.0"
 description = "Utility for downloading objects from Amazon's S3 cloud storage platform."
 license = "MIT"
 authors = ["Dephy Inc. <software@dephy.com>"]
 readme = "README.md"
-repository = "https://www.github.com/DephyInc/s3cache"
+repository = "https://www.github.com/DephyInc/rsyncS3"
 
 [tool.poetry.dependencies]
 python = "^3.10"
