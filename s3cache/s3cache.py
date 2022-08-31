@@ -1,5 +1,4 @@
 import copy
-from functools import partial
 import hashlib
 import multiprocessing
 import os
@@ -24,7 +23,7 @@ class S3Cache:
     # -----
     # constructor
     # -----
-    def __init__(self, bucketName: str, prefix: str="", path: str=None) -> None:
+    def __init__(self, bucketName: str, prefix: str = "", path: str = None) -> None:
         """
         Init method.
 
@@ -123,11 +122,11 @@ class S3Cache:
                 break
 
         if len(md5s) == 1:
-            return '"{}"'.format(md5s[0].hexdigest())
+            return f'"{md5s[0].hexdigest()}"'
 
         digests = b"".join(m.digest() for m in md5s)
         digests_md5 = hashlib.md5(digests)
-        return '"{}-{}"'.format(digests_md5.hexdigest(), len(md5s))
+        return f'"{digests_md5.hexdigest()}-{len(md5s)}"'
 
     # -----
     # _get_obj
@@ -166,16 +165,14 @@ class S3Cache:
         except IndexError:
             parts = 0
         if parts:
-            client = boto.client(service_name='s3', use_ssl=True)
+            client = boto.client(service_name="s3", use_ssl=True)
 
             response = client.head_object(
-                Bucket=self.bucket_name,
-                Key=key,
-                PartNumber=chunk
+                Bucket=self.bucketName, Key=key, PartNumber=chunk
             )
             return int(response["ContentLength"])
 
-        return 8 * 1024 *1024
+        return 8 * 1024 * 1024
 
     # -----
     # sync
