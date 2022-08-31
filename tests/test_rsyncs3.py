@@ -1,4 +1,4 @@
-from rsyncS3 import __version__
+from rsyncs3 import __version__
 
 
 def test_version():
